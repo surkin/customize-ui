@@ -80,8 +80,9 @@ define([
             activityBarWidth() {
                 return this.activityBarIsWide() ? this.traffictLightDimensions().width : 50;
             }
-            
-            init(titleBarIsInline) {                
+
+            init(titleBarIsInline) {
+
                 document.body.classList.add("inline-title-bar");
 
                 window.setTimeout(function() {
@@ -367,19 +368,10 @@ define([
                     ], ElectronHelper);
                     let helper = instantiationService.createInstance(ElectronHelper);
                     init(instantiationService, helper);
-                }
+                }                
 
-                let haveElectron2 = function(electron) {                    
-                    ElectronHelper = utils.decorate([
-                        utils.param(0, electron.INativeHostService),
-                    ], ElectronHelper);
-                    let helper = instantiationService.createInstance(ElectronHelper);
-                    init(instantiationService, helper);
-                }
-
-                require(["vs/platform/electron/node/electron"], haveElectron, function(error) {} );
-                require(["vs/platform/electron/electron-sandbox/electron"], haveElectron, function(error) { });
-                require(["vs/platform/native/electron-sandbox/native"], haveElectron2, function(error) { });                
+                require(["vs/platform/electron/node/electron"], haveElectron, function(error) { } );
+                require(["vs/platform/electron/electron-sandbox/electron"], haveElectron, function(error) {});
             }
         }
 
